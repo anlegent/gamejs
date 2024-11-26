@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Game</title>
+  </head>
+  <body id="body" style="margin: 0; padding: 0">
+    <div
+      style="
+        position: absolute;
+        width: 150px;
+        height: 150px;
+        border: thin solid black;
+      "
+    ></div>
+    <script>
+      function getBackgroundColor(x, y) {
+        if (x <= 150 && y <= 150) {
+          return "crimson";
+        } else if (x <= 250 && y <= 150) {
+          return "white";
+        } else if (x <= 150 && y <= 250) {
+          return "white";
+        } else if (x <= 250 && y <= 250) {
+          return "cornflowerblue";
+        } else if (x <= 350 && y <= 250) {
+          return "white";
+        } else if (x <= 250 && y <= 350) {
+          return "white";
+        } else if (x <= 350 && y <= 350) {
+          return "orange";
+        } else if (x <= 450 && y <= 350) {
+          return "white";
+        } else if (x <= 350 && y <= 450) {
+          return "white";
+        } else if (x <= 450 && y <= 450) {
+          return "magenta";
+        } else {
+          return "white";
+        }
+      }
+
+      getBackgroundColor(100, 100); // resultat: "red"
+      getBackgroundColor(10, 0); // resultat: "white"
+
+      const body = document.getElementById("body");
+
+      window.addEventListener("pointermove", (e) => {
+        const { clientX, clientY } = e;
+
+        const color = getBackgroundColor(clientX, clientY);
+
+        body.style.backgroundColor = color;
+      });
+    </script>
+  </body>
+</html>
